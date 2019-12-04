@@ -1,13 +1,16 @@
 #!python3
 # Units: 0 (inch) & 1 (mm)
-from standards.customs import savedholes
-from standards.equivalences import inch_to_mm
+from customs import savedholes
+from equivalences import mapping
 
 
 class Hole:
     def __init__(self, hole):
         self.hole = hole
 
+
+    # Allow to check the parameters of hole
+    # also, it can be used as extractor of datahole
     def __repr__(self):
         return """{
             "BottomAngle": "%s",
@@ -127,8 +130,9 @@ class Hole:
         print("   Units: %s" % self.hole.Units)
         print("   VBottomDimType: %s" % self.hole.VBottomDimType)
         print("\n")
-
-    def size_hole(self):
+    
+    @property
+    def size(self):
         return self.hole.Size
 
     def get_equivalence(self):
@@ -144,8 +148,7 @@ class Hole:
                 else:
                     pass
 
-                equiv = inch_to_mm.get(size, None)
-                print(equiv)
+                equiv = mapping.get(size, None)
                 if equiv not in savedholes:
                     raise ValueError(
                         "Hole size: %s is not in costums-holes-collection." % size

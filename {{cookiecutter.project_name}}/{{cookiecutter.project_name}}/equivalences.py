@@ -2,7 +2,7 @@
 # Dictionnary of equivalences
 # inch to mm
 
-inch_to_mm = {
+mapping = {
     # :'Countersink #10',
     # :'Countersink 0.250',
     # :'Countersink 0.312',
