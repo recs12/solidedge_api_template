@@ -34,7 +34,7 @@ class Api():
         return self.document.Open(path_to_item)
 
     def close_document(self):
-        return self.document.Close(
+        return self.document.Close()
 
     @property
     def name(cls, part):
