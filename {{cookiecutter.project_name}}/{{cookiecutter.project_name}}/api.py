@@ -29,6 +29,12 @@ class Api():
 
     def active_document(self):
         return self.api.ActiveDocument
+    
+    def open_document(self, path_to_item):
+        return self.document.Open(path_to_item)
+
+    def close_document(self):
+        return self.document.Close(
 
     @property
     def name(cls, part):
