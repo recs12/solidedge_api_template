@@ -22,7 +22,7 @@ def main():
     try:
         application = SRI.Marshal.GetActiveObject("SolidEdge.Application")
         asm = application.ActiveDocument
-        print("part: %s\n" % asm.Name)
+        print("Part: %s\n" % asm.Name)
         # asm.Type =>  plate :4 , assembly : 3, partdocument: 1
         assert asm.Type == 3, "This macro only works on .asm"
 
@@ -41,7 +41,7 @@ def main():
 
 
 def confirmation(func):
-    response = raw_input("""Make a .jt format file? (Press y/[Y] to proceed.)""")
+    response = raw_input("""Wanna create something? (Press y/[Y] to proceed.)""")
     if response.lower() not in ["y", "yes", "oui"]:
         print("Process canceled")
         sys.exit()
